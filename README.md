@@ -15,5 +15,5 @@ Practice based on https://medium.com/@hansonkd/performance-problems-in-the-djang
         
         # --------------------------
         if book.author:
-            print("passed with author_id with an extra query")
+            print("passed with author with an extra query")
         # --------------------------
