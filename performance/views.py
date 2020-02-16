@@ -34,4 +34,14 @@ class PerformanceView(APIView):
         # print('retrieved only book title as Tuple: ', book)
         # --------------------------
 
+        # --------------------------
+        for book in Book.objects.all():
+            print('retrieved all book on memory and iterated: ', book)
+        # --------------------------
+
+        # --------------------------
+        for book in Book.objects.all().iterator():
+            print('retrieved book on open sql connection and iterated through database row: ', book)
+        # --------------------------
+
         return Response(status=status.HTTP_200_OK)

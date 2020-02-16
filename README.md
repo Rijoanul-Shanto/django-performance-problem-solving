@@ -3,7 +3,6 @@ Practice based on https://medium.com/@hansonkd/performance-problems-in-the-djang
 
 # Unexpected Queries
 
-        ```python
         book = Book.objects.get(id=1)
 
         # -- Let's check the availability of
@@ -18,7 +17,6 @@ Practice based on https://medium.com/@hansonkd/performance-problems-in-the-djang
         if book.author:
             print("passed with author with an extra query")
         # --------------------------
-        ```
         
 
 # Getting only what you need
@@ -31,4 +29,16 @@ Practice based on https://medium.com/@hansonkd/performance-problems-in-the-djang
         # --------------------------
         book = Book.objects.all().values_list('title')
         print('retrieved only book title as Tuple: ', book)
+        # --------------------------
+        
+# Handling many rows       
+        
+        # --------------------------
+        for book in Book.objects.all():
+            print('retrieved all book on memory and iterated: ', book)
+        # --------------------------
+
+        # --------------------------
+        for book in Book.objects.all().iterator():
+            print('retrieved book on open sql connection and iterated through database row: ', book)
         # --------------------------
