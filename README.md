@@ -3,6 +3,7 @@ Practice based on https://medium.com/@hansonkd/performance-problems-in-the-djang
 
 # Unexpected Queries
 
+        ```python
         book = Book.objects.get(id=1)
 
         # -- Let's check the availability of
@@ -17,6 +18,7 @@ Practice based on https://medium.com/@hansonkd/performance-problems-in-the-djang
         if book.author:
             print("passed with author with an extra query")
         # --------------------------
+        ```
         
 
 # Getting only what you need
