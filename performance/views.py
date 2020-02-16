@@ -9,19 +9,29 @@ from performance.models import Book
 class PerformanceView(APIView):
     @staticmethod
     def get(request):
-        book = Book.objects.get(id=1)
+        # book = Book.objects.filter(id=1)
 
         # -- Let's check the availability of
         # -- an author from Book model
 
         # --------------------------
-        if book.author_id:
-            print("passed with author_id without extra query")
+        # if book.author_id:
+        #     print("passed with author_id without extra query")
         # --------------------------
 
         # --------------------------
-        if book.author:
-            print("passed with author_id with an extra query")
+        # if book.author:
+        #     print("passed with author_id with an extra query")
+        # --------------------------
+
+        # --------------------------
+        # book = Book.objects.all().values('title')
+        # print('retrieved only book title as Dictionary: ', book)
+        # --------------------------
+
+        # --------------------------
+        # book = Book.objects.all().values_list('title')
+        # print('retrieved only book title as Tuple: ', book)
         # --------------------------
 
         return Response(status=status.HTTP_200_OK)
